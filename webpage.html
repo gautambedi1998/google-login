@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="88846241852-vqpm3tcirm1qpo0pabuk0tli3e7i713c.apps.googleusercontent.com">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body>
+<!-- this one is button -->
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<script>
+{
+  gapi.load('auth2', function () {
+    auth2 = gapi.auth2.init({client_id: '88846241852-vqpm3tcirm1qpo0pabuk0tli3e7i713c.apps.googleusercontent.com',
+    })
+
+    if (auth2.isSignedIn.get()) {
+      var profile = auth2.currentUser.get().getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+    }
+  }
+
+</script>
+</body>
+</html>
